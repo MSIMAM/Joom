@@ -12,6 +12,10 @@ import Typography from '@mui/material/Typography';
 import CloseIcon from '@mui/icons-material/Close';
 import Slide from '@mui/material/Slide';
 import { Link, Head } from '@inertiajs/react';
+import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
+import Grid from '@/Pages/Profile/Grid'
+// import SignUp from '@/Pages/Profile/SignUp'
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -58,14 +62,12 @@ export default function FullScreenDialog() {
           </Toolbar>
         </AppBar>
         <Head title="Profile" />
-
-            <div className="py-12">
-                <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div className="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                        <div className="p-6 text-gray-900 dark:text-gray-100">You're logged in!</div>
-                    </div>
-                </div>
-            </div>
+        <Container maxWidth="xxl">
+            <Box sx={{ bgcolor: '#cfe8fc', height: '90vh' }} >
+                <Grid/>
+            </Box>
+        </Container>
+        {/* <SignUp/> */}
       </Dialog>
     </React.Fragment>
   );
