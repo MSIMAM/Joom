@@ -1,5 +1,6 @@
 import DashboardLayout from '@/Layouts/DashboardLayout';
 import { Head } from '@inertiajs/react';
+import Audio from './Audio'
 
 
 export default function Dashboard({auth}) {
@@ -17,6 +18,7 @@ export default function Dashboard({auth}) {
                     </div>
                 </div>
             </div>
+            <Audio></Audio>
         </DashboardLayout>
     );
 }

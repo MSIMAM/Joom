@@ -27,6 +27,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { Link, Head } from '@inertiajs/react';
+import ProfileDropdown from '@/Components/ProfileDropdown';
 
 const drawerWidth = 240;
 
@@ -382,6 +383,7 @@ export default function MiniDrawer({ user, children }) {
                                 <MoreIcon />
                             </IconButton>
                         </Box>
+                        <ProfileDropdown />
                     </Toolbar>
                 </AppBar>
                 {renderMobileMenu}
