@@ -27,6 +27,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { Link, Head } from '@inertiajs/react';
+import Profile from '@/Pages/Profile/Index'
 
 const drawerWidth = 240;
 
@@ -189,12 +190,12 @@ export default function MiniDrawer({ user, children }) {
             onClose={handleMenuClose}
         >
             <MenuItem onClick={handleMenuClose}>
-            <Link
+            {/* <Link
                     href={route('profile.edit')}
                     className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                    >
-                       <p>Profile</p>
-                </Link>
+                    > */}
+                       <Profile/>
+                {/* </Link> */}
             </MenuItem>
             <MenuItem onClick={handleMenuClose}>My account</MenuItem>
         </Menu>
@@ -252,8 +253,9 @@ export default function MiniDrawer({ user, children }) {
                     >
                         <AccountCircle />
                     </IconButton>
-                    <p>Profile</p>
+                        <Profile/>
                     </Link>
+
                 </MenuItem>
                         </>
                         ) : (
