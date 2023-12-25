@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Inertia\Inertia;
 use App\Models\Artist;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Route;
 
 class ArtistController extends Controller
 {
@@ -43,7 +45,10 @@ class ArtistController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Auth/SignUp', [
+            'canResetPassword' => Route::has('password.request'),
+            'status' => session('status'),
+        ]);
     }
 
     /**

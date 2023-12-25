@@ -191,12 +191,12 @@ export default function MiniDrawer({ user, children }) {
             onClose={handleMenuClose}
         >
             <MenuItem onClick={handleMenuClose}>
-            {/* <Link
+                <Link
                     href={route('profile.edit')}
                     className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                    > */}
-                       <Profile/>
-                {/* </Link> */}
+                    >
+                    Profile
+                </Link>
             </MenuItem>
             <MenuItem onClick={handleMenuClose}>My account</MenuItem>
         </Menu>
@@ -221,61 +221,61 @@ export default function MiniDrawer({ user, children }) {
         >
 
             {user ? (
-                        <>
-                <MenuItem>
+                <>
+                    <MenuItem>
                         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
                             <Badge badgeContent={4} color="error">
                                 <MailIcon />
                             </Badge>
                         </IconButton>
                         <p>Messages</p>
-                </MenuItem>
-                <MenuItem>
-                    <IconButton
-                        size="large"
-                        aria-label="show 17 new notifications"
-                        color="inherit"
-                    >
-                        <Badge badgeContent={17} color="error">
-                            <NotificationsIcon />
-                        </Badge>
-                    </IconButton>
-                    <p>Notifications</p>
-                </MenuItem>
-                <MenuItem onClick={handleProfileMenuOpen}>
-                    <Link
-                        href={route('profile.edit')}
-                        className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                    </MenuItem>
+                    <MenuItem>
+                        <IconButton
+                            size="large"
+                            aria-label="show 17 new notifications"
+                            color="inherit"
+                        >
+                            <Badge badgeContent={17} color="error">
+                                <NotificationsIcon />
+                            </Badge>
+                        </IconButton>
+                        <p>Notifications</p>
+                    </MenuItem>
+                    <MenuItem onClick={handleProfileMenuOpen}>
+                        <Link
+                            href={route('profile.edit')}
+                            className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
                         >
                             <IconButton
-                        size="large"
-                        aria-label="show 17 new notifications"
-                        color="inherit"
+                                size="large"
+                                aria-label="show 17 new notifications"
+                                color="inherit"
+                            >
+                                <AccountCircle />
+                            </IconButton>
+                            Profile
+                        </Link>
+
+                    </MenuItem>
+                </>
+            ) : (
+                <>
+                    <Link
+                        href={route('login')}
+                        className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
                     >
-                        <AccountCircle />
-                    </IconButton>
-                        <Profile/>
+                        Log in
                     </Link>
 
-                </MenuItem>
-                        </>
-                        ) : (
-                            <>
-                                <Link
-                                    href={route('login')}
-                                    className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                                    >
-                                    Log in
-                                </Link>
-
-                                <Link
-                                    href={route('register')}
-                                    className="ms-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                                    >
-                                    Register
-                                </Link>
-                            </>
-                    )}
+                    <Link
+                        href={route('register')}
+                        className="ms-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                    >
+                        Register
+                    </Link>
+                </>
+            )}
 
         </Menu>
     );
@@ -328,22 +328,22 @@ export default function MiniDrawer({ user, children }) {
                         <Box sx={{ flexGrow: 1 }} />
                         <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                             {user ? (
-                             <>
-                                <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-                                    <Badge badgeContent={4} color="error">
-                                        <MailIcon />
-                                    </Badge>
-                                </IconButton>
-                                <IconButton
-                                    size="large"
-                                    aria-label="show 17 new notifications"
-                                    color="inherit"
-                                >
-                                    <Badge badgeContent={17} color="error">
-                                        <NotificationsIcon />
-                                    </Badge>
-                                </IconButton>
-                                <IconButton
+                                <>
+                                    <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+                                        <Badge badgeContent={4} color="error">
+                                            <MailIcon />
+                                        </Badge>
+                                    </IconButton>
+                                    <IconButton
+                                        size="large"
+                                        aria-label="show 17 new notifications"
+                                        color="inherit"
+                                    >
+                                        <Badge badgeContent={17} color="error">
+                                            <NotificationsIcon />
+                                        </Badge>
+                                    </IconButton>
+                                    <IconButton
                                     size="large"
                                     edge="end"
                                     aria-label="account of current user"
@@ -354,38 +354,38 @@ export default function MiniDrawer({ user, children }) {
                                 >
                                     <AccountCircle />
                                 </IconButton>
-                             </>
-                                ) : (
-                                    <>
-                                        <Link
-                                            href={route('login')}
-                                            className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                                            >
-                                            Log in
-                                        </Link>
+                                    <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+                                        <IconButton
+                                            size="large"
+                                            aria-label="show more"
+                                            aria-controls={mobileMenuId}
+                                            aria-haspopup="true"
+                                            onClick={handleMobileMenuOpen}
+                                            color="inherit"
+                                        >
+                                            <MoreIcon />
+                                        </IconButton>
+                                    </Box>
+                                    <ProfileDropdown />
+                                </>
+                            ) : (
+                                <>
+                                    <Link
+                                        href={route('login')}
+                                        className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                    >
+                                        Log in
+                                    </Link>
 
-                                        <Link
-                                            href={route('register')}
-                                            className="ms-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                                            >
-                                            Register
-                                        </Link>
-                                    </>
+                                    <Link
+                                        href={route('register')}
+                                        className="ms-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                    >
+                                        Register
+                                    </Link>
+                                </>
                             )}
                         </Box>
-                        <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-                            <IconButton
-                                size="large"
-                                aria-label="show more"
-                                aria-controls={mobileMenuId}
-                                aria-haspopup="true"
-                                onClick={handleMobileMenuOpen}
-                                color="inherit"
-                            >
-                                <MoreIcon />
-                            </IconButton>
-                        </Box>
-                        <ProfileDropdown />
                     </Toolbar>
                 </AppBar>
                 {renderMobileMenu}

@@ -14,7 +14,7 @@ import Slide from '@mui/material/Slide';
 import { Link, Head } from '@inertiajs/react';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
-import Grid from '@/Pages/Profile/Grid'
+import Grid from '@/Pages/Profile/Pagination'
 // import SignUp from '@/Pages/Profile/SignUp'
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -63,7 +63,7 @@ export default function FullScreenDialog() {
         </AppBar>
         <Head title="Profile" />
         <Container maxWidth="xxl">
-            <Box sx={{ bgcolor: '#cfe8fc', height: '90vh' }} >
+            <Box sx={{ height: '90vh' }} >
                 <Grid/>
             </Box>
         </Container>
