@@ -29,6 +29,7 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import { Link, Head } from '@inertiajs/react';
 import Profile from '@/Pages/Profile/Index'
 import ProfileDropdown from '@/Components/ProfileDropdown';
+import Drawer from '@mui/material/Drawer';
 
 const drawerWidth = 240;
 
@@ -121,22 +122,22 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
         },
     },
 }));
-const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
-    ({ theme, open }) => ({
-        width: drawerWidth,
-        flexShrink: 0,
-        whiteSpace: 'nowrap',
-        boxSizing: 'border-box',
-        ...(open && {
-            ...openedMixin(theme),
-            '& .MuiDrawer-paper': openedMixin(theme),
-        }),
-        ...(!open && {
-            ...closedMixin(theme),
-            '& .MuiDrawer-paper': closedMixin(theme),
-        }),
-    }),
-);
+// const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
+//     ({ theme, open }) => ({
+//         width: drawerWidth,
+//         flexShrink: 0,
+//         whiteSpace: 'nowrap',
+//         boxSizing: 'border-box',
+//         ...(open && {
+//             ...openedMixin(theme),
+//             '& .MuiDrawer-paper': openedMixin(theme),
+//         }),
+//         ...(!open && {
+//             ...closedMixin(theme),
+//             '& .MuiDrawer-paper': closedMixin(theme),
+//         }),
+//     }),
+// );
 
 export default function MiniDrawer({ user, children }) {
 
@@ -191,12 +192,12 @@ export default function MiniDrawer({ user, children }) {
             onClose={handleMenuClose}
         >
             <MenuItem onClick={handleMenuClose}>
-                <Link
+                {/* <Link
                     href={route('profile.edit')}
                     className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                    >
-                    Profile
-                </Link>
+                    > */}
+                <Profile />
+                {/* </Link> */}
             </MenuItem>
             <MenuItem onClick={handleMenuClose}>My account</MenuItem>
         </Menu>
@@ -254,7 +255,7 @@ export default function MiniDrawer({ user, children }) {
                             >
                                 <AccountCircle />
                             </IconButton>
-                            Profile
+                            <Profile />
                         </Link>
 
                     </MenuItem>
@@ -344,29 +345,16 @@ export default function MiniDrawer({ user, children }) {
                                         </Badge>
                                     </IconButton>
                                     <IconButton
-                                    size="large"
-                                    edge="end"
-                                    aria-label="account of current user"
-                                    aria-controls={menuId}
-                                    aria-haspopup="true"
-                                    onClick={handleProfileMenuOpen}
-                                    color="inherit"
-                                >
-                                    <AccountCircle />
-                                </IconButton>
-                                    <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-                                        <IconButton
-                                            size="large"
-                                            aria-label="show more"
-                                            aria-controls={mobileMenuId}
-                                            aria-haspopup="true"
-                                            onClick={handleMobileMenuOpen}
-                                            color="inherit"
-                                        >
-                                            <MoreIcon />
-                                        </IconButton>
-                                    </Box>
-                                    <ProfileDropdown />
+                                        size="large"
+                                        edge="end"
+                                        aria-label="account of current user"
+                                        aria-controls={menuId}
+                                        aria-haspopup="true"
+                                        onClick={handleProfileMenuOpen}
+                                        color="inherit"
+                                    >
+                                        <AccountCircle />
+                                    </IconButton>
                                 </>
                             ) : (
                                 <>
@@ -386,11 +374,36 @@ export default function MiniDrawer({ user, children }) {
                                 </>
                             )}
                         </Box>
+                        <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+                            <IconButton
+                                size="large"
+                                aria-label="show more"
+                                aria-controls={mobileMenuId}
+                                aria-haspopup="true"
+                                onClick={handleMobileMenuOpen}
+                                color="inherit"
+                            >
+                                <MoreIcon />
+                            </IconButton>
+                        </Box>
+                        <ProfileDropdown />
                     </Toolbar>
                 </AppBar>
                 {renderMobileMenu}
                 {renderMenu}
-                <Drawer variant="permanent" open={open}>
+                <Drawer
+                    sx={{
+                        width: drawerWidth,
+                        flexShrink: 0,
+                        '& .MuiDrawer-paper': {
+                            width: drawerWidth,
+                            boxSizing: 'border-box',
+                        },
+                    }}
+                    variant="persistent"
+                    anchor="left"
+                    open={open}
+                >
                     <DrawerHeader>
                         <IconButton onClick={handleDrawerClose}>
                             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}

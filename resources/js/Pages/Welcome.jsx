@@ -10,8 +10,8 @@ import { Container, styled } from '@mui/material';
 
 export default function Dashboard({ auth }) {
     const MyContainer = styled('div')({
-        width: '95%',
-        marginLeft: 'auto'
+        // width: '95%',
+        // marginLeft: 'auto'
     });
     return (
         <DashboardLayout
