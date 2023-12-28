@@ -291,7 +291,7 @@ export default function MiniDrawer({ user, children }) {
 
     return (
         <ThemeProvider theme={darkTheme}>
-            <Box sx={{ display: 'flex' }}>
+            <Box sx={{ display: 'block' }}>
                 <Head title="Welcome" />
                 <CssBaseline />
                 <AppBar position="fixed" open={open} >
