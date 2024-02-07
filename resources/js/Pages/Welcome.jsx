@@ -1,25 +1,31 @@
 import DashboardLayout from '@/Layouts/DashboardLayout';
 import { Head } from '@inertiajs/react';
-import Audio from './Audio'
+import Audio from './Audio';
+import Swiper from '@/Components/Swiper';
+import MySwiper from '@/Components/MySwiper';
+import React, { useRef } from 'react';
+import { Container, styled } from '@mui/material';
 
 
 
-export default function Dashboard({auth}) {
+export default function Dashboard({ auth }) {
+    const MyContainer = styled('div')({
+        // width: '95%',
+        // marginLeft: 'auto'
+    });
     return (
         <DashboardLayout
             user={auth.user}
             header={<h2 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">Dashboard</h2>}
         >
             <Head title="Welcome" />
-
-            <div className="py-12">
-                <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div className="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                        <div className="p-6 text-gray-900 dark:text-gray-100">You're logged in!</div>
-                    </div>
-                </div>
-            </div>
-            <Audio></Audio>
+            <MyContainer>
+                <Swiper />
+                <Swiper />
+                <Swiper />
+                {/* <MySwiper></MySwiper> */}
+                <Audio></Audio>
+            </MyContainer>
         </DashboardLayout>
     );
 }
